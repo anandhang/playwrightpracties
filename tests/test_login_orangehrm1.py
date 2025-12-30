@@ -8,7 +8,7 @@ def test_example(page: Page) -> None:
     page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
     loginPage = LoginPage(page)
     homePage = HomePage(page)
-
+    #Use POM
     loginPage.click_username()
     loginPage.enter_username("Admin")
     loginPage.click_password()
@@ -17,7 +17,7 @@ def test_example(page: Page) -> None:
     homePage.is_upgrade_button_Visible()
     homePage.click_perfomance_link()
     expect(page.get_by_role("button", name="Search")).to_be_visible()
-
+    #without POm
     page.get_by_role("button", name="Search").click()
     expect(page.locator("#app")).to_contain_text("No Records Found")
     page.get_by_role("link", name="Dashboard").click()
